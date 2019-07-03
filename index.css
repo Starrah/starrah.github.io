@@ -185,8 +185,11 @@ ul.personalTags li{
 div.personalInfoList p{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 0 6%;
+
+    padding: 0 5% 0 5%;
+}
+div.personalInfoList p>span{
+    width: 50%;
 }
 .mainInfo{
     font-size: 1.2em;
