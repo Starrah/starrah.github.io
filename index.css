@@ -8,13 +8,13 @@ body{
 }
 @font-face {
     font-family: 'XiaRi';
-    src: url('ext/HYXiaRiTiW.ttf');
-    src: url('ext/HYXiaRiTiW.ttf') format('truetype');
+    src: url('resource/HYXiaRiTiW.ttf');
+    src: url('resource/HYXiaRiTiW.ttf') format('truetype');
 }
 @font-face {
     font-family: 'XiuYing';
-    src: url('ext/HYXiuYingTiJ.ttf');
-    src: url('ext/HYXiuYingTiJ.ttf') format('truetype');
+    src: url('resource/HYXiuYingTiJ.ttf');
+    src: url('resource/HYXiuYingTiJ.ttf') format('truetype');
 }
 .header{
     background-color: rgb(255,138,158);
@@ -71,7 +71,7 @@ body{
 
 /*背景来源：nikki4.papegames.cn/yuyue*/
 body{
-    background-image: url("ext/p2_bg.jpg");
+    background-image: url("resource/p2_bg.jpg");
 }
 
 .mainBody{
@@ -92,7 +92,7 @@ body{
     display: inline-block;
 }
 .sideBarAbovePic{
-    background-image: url("ext/aboveInfo.png");
+    background-image: url("resource/aboveInfo.png");
     background-size: 100% 100%;
     height: 43px;
     position: relative;
@@ -148,7 +148,7 @@ body{
         width: 100%;
     }
     .sideBarAbovePic{
-        background-image: url("ext/aboveInfo.png");
+        background-image: url("resource/aboveInfo.png");
         background-size: 100% 100%;
         height: 43px;
         position: relative;
@@ -178,7 +178,7 @@ ul.personalTags li{
     margin: 5px 1%;
     min-height: 2.1em;
     background-repeat: repeat;
-    background-image: url("ext/personalTag.png");
+    background-image: url("resource/personalTag.png");
     background-size: 100% 100%;
     text-align: center;
 }
