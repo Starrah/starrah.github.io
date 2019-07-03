@@ -1,0 +1,211 @@
+/*参考：https://blog.csdn.net/weixin_39927850/article/details/79359185*/
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'XiaRi';
+    src: url('ext/HYXiaRiTiW.ttf');
+    src: url('ext/HYXiaRiTiW.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'XiuYing';
+    src: url('ext/HYXiuYingTiJ.ttf');
+    src: url('ext/HYXiuYingTiJ.ttf') format('truetype');
+}
+.header{
+    background-color: rgb(255,138,158);
+    color: rgb(245,230,233);
+    margin: 0px;
+    z-index: 100;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+.logo{
+    display: inline-block;
+    margin: 0 1em 0 1em;
+}
+.logo a{
+    text-decoration: none;
+    color: rgb(245,230,233);
+}
+.header a{
+    text-decoration: none;
+    color: rgb(245,230,233)
+}
+.headerList a:hover{
+    color: rgb(226,183,125);
+}
+.header ul{
+    display: inline-block;
+    padding: 0;
+    margin: 0 30px;
+    padding: 0;
+}
+.headerFont{
+    font-family: XiuYing;
+    font-size: 2em;
+}
+.header li{
+    text-align: center;
+    display: inline-block;
+    min-width: 5em;
+    padding: 10px 10px;
+    border-right: 2px solid rgb(245,230,233);
+    margin:0;
+}
+.header li:first-child{
+    border-left: 2px solid rgb(245,230,233);
+}
+.header li.active{
+    background-color: rgb(245,230,233);
+}
+.header li.active a{
+    color: rgb(255,138,158);
+}
+
+/*背景来源：nikki4.papegames.cn/yuyue*/
+body{
+    background-image: url("ext/p2_bg.jpg");
+}
+
+.mainBody{
+    margin: 0 6%;
+    display: flex;
+}
+.leftSideBar{
+    margin: 2.5em 4% 10px 3%;
+    padding: 0 10px 30px 10px;
+    width: 40%;
+    background-color: rgba(236,194,145,0.5);
+    display: inline-block;
+}
+.blogArea{
+    margin: 10px 3% 10px 4%;
+    padding: 0 10px 30px 10px;
+    width: 60%;
+    display: inline-block;
+}
+.sideBarAbovePic{
+    background-image: url("ext/aboveInfo.png");
+    background-size: 100% 100%;
+    height: 43px;
+    position: relative;
+    left: -10%;
+    top: 0;
+    width: 120%;
+    z-index: 5;
+}
+.blogBlock{
+    border: 3px outset rgb(236,194,145);
+    background-color: white;
+    padding: 10px 10px;
+    margin: 2em 0;
+    display: block;
+}
+.blogBlock:hover{
+    color: rgb(169, 131, 97);
+}
+.leftSideBar p{
+    margin: 5px 5px;
+    color: black;
+    font-family: XiaRi;
+}
+.headPhoto{
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+}
+@media screen and (max-width: 800px){
+    .header li{
+        font-family: XiuYing;
+        font-size: 1.4em;
+        text-align: center;
+        display: inline-block;
+        min-width: 3.5em;
+        padding: 10px 10px;
+        border-right: 2px solid rgb(245,230,233);
+        margin:0;
+    }
+    .mainBody{
+        margin: 0 10px;
+        display: block;
+    }
+    .leftSideBar{
+        margin: 10px;
+        padding: 0px 10px 10px 10px;
+        width: 100%;
+        background-color: rgba(236,194,145,0.5);
+    }
+    .blogArea{
+        margin: 10px;
+        padding: 10px;
+        width: 100%;
+    }
+    .sideBarAbovePic{
+        background-image: url("ext/aboveInfo.png");
+        background-size: 100% 100%;
+        height: 43px;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+    }
+}
+.leftSideBar p.nameStr{
+    font-size: 2em;
+    color: rgb(255,138,158);
+    text-align: center;
+}
+ul.personalTags{
+    margin: 10px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+ul.personalTags li{
+    display: inline-block;
+    color: slategrey;
+    font-family: XiuYing;
+    padding: 0.75em 1em 0.35em 1em;
+    width: 30%;
+    margin: 5px 1%;
+    min-height: 2.1em;
+    background-repeat: repeat;
+    background-image: url("ext/personalTag.png");
+    background-size: 100% 100%;
+    text-align: center;
+}
+div.personalInfoList p{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6%;
+}
+.mainInfo{
+    font-size: 1.2em;
+}
+.secondaryInfo{
+    font-size: 1em;
+}
+.thirdaryInfo{
+    font-size: 0.6em;
+}
+.blogBlock h2{
+    font-family: XiaRi;
+}
+.blogBlock p{
+    font-family: XiaRi;
+}
+.blogBlock a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
