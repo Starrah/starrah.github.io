@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Starrah&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Starrah&#39;s Blog">
+<meta property="og:url" content="http://starrah.cn/blog/index.html">
+<meta property="og:site_name" content="Starrah&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Starrah&#39;s Blog">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="index.html" id="logo">Starrah&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../">主页</a>
+        
+          <a class="main-nav-link" href="index.html">全部博文</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://starrah.cn/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-实验2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="实验2-20190707/" class="article-date">
+  <time datetime="2019-07-07T07:40:29.000Z" itemprop="datePublished">2019-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="实验2-20190707/">实验2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h1><p>##概述<br>本次实验主要是几道OJ题。<br>个人认为前三题难度还是不大的，主要是考察的JS的基本语法。<br>心得体会是：<strong>会用库/特性很重要！</strong>  </p>
+<p>##前三题<br>像第一题，只要用了JS的Date库，支持Date对象的直接加减计算时间差的功能，把计算出来的时间差除以一天的86400000ms，没几行代码就写完了；<br>而第二题，它的确花了我一些时间，但是是因为去查看了generator函数和yield关键字的用法。个人理解yield就像一个栈的存储器一样，它帮你把函数的执行点存起来，这样下次调用next会直接从上次的执行点运行，而不是从头运行，像极我们平时写DFS又不想写递归的时候，自己定义的栈。不过我仍然遇到了一点问题，就是has_next函数应该怎么在yield只有next方法的情况下实现，这个的确让我思考了一会，不过最终还是想出了比较简洁的解决方案，用了保存has_next调用状态的小技巧。<br>第三题核心在于理解高阶函数的原理，实现起来的时候并没有遇到多大困难，只要递归广搜然后调用实参函数就好。</p>
+<p>##第五题<br>第五题对我来说做起来是有着一定的难度的。表达式求值一直是个很难的问题<del>（虽然离散和数据结构都有讲过相关的）</del>，我通过回忆和查阅资料，了解到了像图中的中缀表达式求解可以一般化为两个过程：  </p>
+<ol>
+<li>把带括号的中缀表达式化为逆波兰式（不带括号的后缀表达式）  </li>
+<li>求解逆波兰式：从左到右遍历逆波兰式，遇到数就进栈，遇到操作符，就取出两个栈顶元素，调用计算函数计算结果，结果存回栈内</li>
+<li>最终栈顶的元素就是表达式的结果。  </li>
+</ol>
+<p>栈很好实现，用数组的push和pop功能就完美解决了。操作符的计算我使用了一个高阶函数，里面有一个大大的if结构，根据不同的可能运算符输入，返回该运算符对应的计算函数，这样在逆波兰式求解时只需要调用该函数就可以，实现了表达式处理和表达式计算的解耦合。<br>这道题的确让我回忆了很多以前学过的知识，也更深的学会使用了JS的用法（前三题我都没怎么太调试，直接console.log，但这道题写的过程中错误频出让我不得不学会了使用Webstrom的Node Debugger），让我受益很大。  </p>
+<p>##第四题<br><del>（其实最开始没打算做第四题的，但后来发现两道都做取最高者得分，本着不做白不做的原则还是做了（逃））</del><br>这道题题目我认为蛮难的，乍看上去是一个搜索（深搜？)，可问题就出现在了搜索下一个结点的限制条件是当前位置到箱子目标位置的反方向是人当前状态需要可达的。所以相当于要写两组搜索：搜索箱子能不能到目标位置，和搜索在箱子的某一状态下，人能不能到目标位置（显然，人是不能穿越箱子的）。<br>为此，搜索人的可达位置部分用了BFS，在当前地图上直接做BFS即可，返回true/false表示人是否可达，不关心如何到达；<br>而搜索箱子的部分经过我的思考还是选用了DFS，用递归DFS方法，每一个函数先验证能否把箱子推到要求的位置；如果能的话，再改变地图的状态，递归向四个方向调用搜索函数。<br>这个搜索过程中一定要留意搜索状态，稍有不注意就会写成NP复杂度；<br>此外debug也非常的累，我直到最后，规模2的7个测例中还是会WA掉1个，不过没什么办法了qwq，希望第五题多拿点分吧，毕竟作这道题也只是为了保险的TwT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://starrah.cn/blog/实验2-20190707/" data-id="cjxsji8bc0002isvkzkkxx890" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog1-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="blog1-2-20190703/" class="article-date">
+  <time datetime="2019-07-03T14:20:54.353Z" itemprop="datePublished">2019-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一次作业文档"><a href="#第一次作业文档" class="headerlink" title="第一次作业文档"></a>第一次作业文档</h1><h3 id="一、程序设计概述"><a href="#一、程序设计概述" class="headerlink" title="一、程序设计概述"></a>一、程序设计概述</h3><p>本作业实现了个人主页的HTML与CSS设计，并利用hexo框架构建了支持markdown编辑的、具有特定风格的博客页面。  </p>
+<h3 id="二、主页部分"><a href="#二、主页部分" class="headerlink" title="二、主页部分"></a>二、主页部分</h3><p>主页部分完全手工编写，没有使用任何第三方库；见index.html和index.css文件当中。<br>使用的方法包括通过<code>position: fixed;</code>设置固定于上方的标题栏、通过<code>flex</code>布局实现个人简介栏与日志部分的分为两页显示，并在其中使用了大量的<code>background</code>、<code>margin</code>、<code>padding</code>等方法用以获得更加好的显示效果。并在大多数情况下使用<code>%</code>、<code>em</code>等相对布局方法以求能够在各种分辨率下正确显示。<br>除此之外，还通过css设置了当屏幕分辨率小于一定值时为一列显示，以<strong>适应手机等小型阅读器</strong>的需要。（实现了提高要求）<br>最后，利用JS实现了一个简单的鼠标放到左侧<code>软叭酱公众号后台</code>文字上即可自动出现微信二维码的功能。</p>
+<h3 id="三、日志部分"><a href="#三、日志部分" class="headerlink" title="三、日志部分"></a>三、日志部分</h3><p>日志部分使用了<a href="https://hexo.io/" target="_blank" rel="noopener">hexo</a>博客框架来完成。在后端部署了该框架，支持以markdown形式撰写博客内容并自动转为html文件，同时选择了与主页风格适合的主题。<br>这一部分尚有完善空间，比如对博客内容进行更加个性化的定制等等，将随着我对前端开发学习更加深入而逐步完善。  </p>
+<h3 id="四、其他说明"><a href="#四、其他说明" class="headerlink" title="四、其他说明"></a>四、其他说明</h3><p>本页面的Github Pages地址为<a href="https://starrah.github.io" target="_blank" rel="noopener">starrah.github.io</a>；同时部署了一份完全相同的内容在我的个人服务器<a href="https://starrah.cn">starrah.cn</a>上。未来将会考虑结合我的服务器开发更为复杂的后端和动态Web应用程序。<br>经过测试，可能由于github服务器在国外等原因，加载页面所需的字体等资源较慢，因此您可能需要耐心等待15s以上才能看到完整的页面效果。建议您直接通过打开本地<code>index.html</code>方式访问。<br>联系方式；<br>姓名：赵乙宁<br>学号：2017010435<br>邮箱：<a href="zhaoyn17@mails.tsinghua.edu.cn">zhaoyn17@mails.tsinghua.edu.cn</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://starrah.cn/blog/blog1-2-20190703/" data-id="cjxsji8av0001isvk2khq4icd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog1_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="blog1_1-20190703/" class="article-date">
+  <time datetime="2019-07-03T12:32:04.384Z" itemprop="datePublished">2019-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前端真好玩"><a href="#前端真好玩" class="headerlink" title="前端真好玩"></a>前端真好玩</h1><h2 id="全新的体验"><a href="#全新的体验" class="headerlink" title="全新的体验"></a>全新的体验</h2><p>作为一个有着一定的后端开发经验（其实只是喜欢没事鼓捣鼓捣小程序而已）的人，刚看到前端使用的HTML、CSS、JavaScript，我的反应是这样的：<br><code>为什么界面非要写成单独的HTML文件啊，直接全代码里直接动态操作多好，就像QT一样</code>  </p>
+<p><code>CSS好多内容啊事好多啊根本背不下来qwq</code>  </p>
+<p>不过最想吐槽的还是：<br><code>JavaScript弱类型编译器不检查一跑一篇子异常类型机制还不完善最可气的是this到处指根本不知道是谁</code></p>
+<p>毕竟，作为了一个习惯了Java超强类型和IDE各种编译时检查的人，使用JS真的超不习惯。  </p>
+<p>不过写着写着，似乎了解了许多这样做的意义：比如，我最难以理解的CSS样式和HTML元素分离，其实在需要大规模调整风格的时候变得特别的有用；比如，HTML使用元素式布局而不像QT那样以直接摆放控件为主，实则留出了各种终端显示和显示大量内容的空间，内容一多浏览器就会自动生成滚动条供人滚动查看（QT里写一个可滚动的元素麻烦得要死），此外也留下了充足的适配手机等多终端的空间。<br><code>不过弱类型还是蛮叫人讨厌的，所以才会有TypeScript:-)</code></p>
+<h2 id="我眼中的前端"><a href="#我眼中的前端" class="headerlink" title="我眼中的前端"></a>我眼中的前端</h2><p>前端开发是一个很重要的领域。可以说，对于21世纪个人计算机进入千家万户，功不可没的就是微软公司的Windows系统。它让计算机不再是只有专业人士才懂得命令行，而成为了可见可交互的设备，极大的降低了计算机的使用门槛。<br>前端开发的意义就在于设计简单方便的用户界面，能够高效、美观地向用户展示内容和与用户交互。如果说后端是计算机的骨架的话，那么前端就是皮肤；没有骨架当然无法存活，但没有皮肤，恐怕就像电影里的吸血鬼一样是个不讨人喜欢的东西。<br>我曾经对于前端的了解仅限于Java的Swing和QT（它们有类似之处），但对于基于HTML、CSS和JavaScript的前端开发是刚刚接触。可以说，这是一种很好的前端开发模式，虽然有时略显复杂，但其规范性、可复用性和可适应各种显示环境的性能比起Swing和QT有着较大的优势。更何况，如今随着网络和手机等便携设备的普及，再让用户安装一个软件才能执行其功能是一件很麻烦的事，基于浏览器的Web前端开发就具有了很大的优越性。<br>因此，我要认真学习Web前端开发，掌握基本的技能，从而让自己更加全面地掌握计算机知识，能够做出更大的项目、取得更有用的成果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://starrah.cn/blog/blog1_1-20190703/" data-id="cjxsji8an0000isvkkqqh6bwy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="实验2-20190707/">实验2</a>
+          </li>
+        
+          <li>
+            <a href="blog1-2-20190703/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="blog1_1-20190703/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Starrah<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../" class="mobile-nav-link">主页</a>
+  
+    <a href="index.html" class="mobile-nav-link">全部博文</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
+  <script src="fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

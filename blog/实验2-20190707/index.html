@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>实验2 | Starrah&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="实验2##概述本次实验主要是几道OJ题。个人认为前三题难度还是不大的，主要是考察的JS的基本语法。心得体会是：会用库/特性很重要！   ##前三题像第一题，只要用了JS的Date库，支持Date对象的直接加减计算时间差的功能，把计算出来的时间差除以一天的86400000ms，没几行代码就写完了；而第二题，它的确花了我一些时间，但是是因为去查看了generator函数和yield关键字的用法。个人理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验2">
+<meta property="og:url" content="http://starrah.cn/blog/实验2-20190707/index.html">
+<meta property="og:site_name" content="Starrah&#39;s Blog">
+<meta property="og:description" content="实验2##概述本次实验主要是几道OJ题。个人认为前三题难度还是不大的，主要是考察的JS的基本语法。心得体会是：会用库/特性很重要！   ##前三题像第一题，只要用了JS的Date库，支持Date对象的直接加减计算时间差的功能，把计算出来的时间差除以一天的86400000ms，没几行代码就写完了；而第二题，它的确花了我一些时间，但是是因为去查看了generator函数和yield关键字的用法。个人理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-07T08:08:47.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实验2">
+<meta name="twitter:description" content="实验2##概述本次实验主要是几道OJ题。个人认为前三题难度还是不大的，主要是考察的JS的基本语法。心得体会是：会用库/特性很重要！   ##前三题像第一题，只要用了JS的Date库，支持Date对象的直接加减计算时间差的功能，把计算出来的时间差除以一天的86400000ms，没几行代码就写完了；而第二题，它的确花了我一些时间，但是是因为去查看了generator函数和yield关键字的用法。个人理">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../index.html" id="logo">Starrah&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../">主页</a>
+        
+          <a class="main-nav-link" href="../index.html">全部博文</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://starrah.cn/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-实验2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2019-07-07T07:40:29.000Z" itemprop="datePublished">2019-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实验2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h1><p>##概述<br>本次实验主要是几道OJ题。<br>个人认为前三题难度还是不大的，主要是考察的JS的基本语法。<br>心得体会是：<strong>会用库/特性很重要！</strong>  </p>
+<p>##前三题<br>像第一题，只要用了JS的Date库，支持Date对象的直接加减计算时间差的功能，把计算出来的时间差除以一天的86400000ms，没几行代码就写完了；<br>而第二题，它的确花了我一些时间，但是是因为去查看了generator函数和yield关键字的用法。个人理解yield就像一个栈的存储器一样，它帮你把函数的执行点存起来，这样下次调用next会直接从上次的执行点运行，而不是从头运行，像极我们平时写DFS又不想写递归的时候，自己定义的栈。不过我仍然遇到了一点问题，就是has_next函数应该怎么在yield只有next方法的情况下实现，这个的确让我思考了一会，不过最终还是想出了比较简洁的解决方案，用了保存has_next调用状态的小技巧。<br>第三题核心在于理解高阶函数的原理，实现起来的时候并没有遇到多大困难，只要递归广搜然后调用实参函数就好。</p>
+<p>##第五题<br>第五题对我来说做起来是有着一定的难度的。表达式求值一直是个很难的问题<del>（虽然离散和数据结构都有讲过相关的）</del>，我通过回忆和查阅资料，了解到了像图中的中缀表达式求解可以一般化为两个过程：  </p>
+<ol>
+<li>把带括号的中缀表达式化为逆波兰式（不带括号的后缀表达式）  </li>
+<li>求解逆波兰式：从左到右遍历逆波兰式，遇到数就进栈，遇到操作符，就取出两个栈顶元素，调用计算函数计算结果，结果存回栈内</li>
+<li>最终栈顶的元素就是表达式的结果。  </li>
+</ol>
+<p>栈很好实现，用数组的push和pop功能就完美解决了。操作符的计算我使用了一个高阶函数，里面有一个大大的if结构，根据不同的可能运算符输入，返回该运算符对应的计算函数，这样在逆波兰式求解时只需要调用该函数就可以，实现了表达式处理和表达式计算的解耦合。<br>这道题的确让我回忆了很多以前学过的知识，也更深的学会使用了JS的用法（前三题我都没怎么太调试，直接console.log，但这道题写的过程中错误频出让我不得不学会了使用Webstrom的Node Debugger），让我受益很大。  </p>
+<p>##第四题<br><del>（其实最开始没打算做第四题的，但后来发现两道都做取最高者得分，本着不做白不做的原则还是做了（逃））</del><br>这道题题目我认为蛮难的，乍看上去是一个搜索（深搜？)，可问题就出现在了搜索下一个结点的限制条件是当前位置到箱子目标位置的反方向是人当前状态需要可达的。所以相当于要写两组搜索：搜索箱子能不能到目标位置，和搜索在箱子的某一状态下，人能不能到目标位置（显然，人是不能穿越箱子的）。<br>为此，搜索人的可达位置部分用了BFS，在当前地图上直接做BFS即可，返回true/false表示人是否可达，不关心如何到达；<br>而搜索箱子的部分经过我的思考还是选用了DFS，用递归DFS方法，每一个函数先验证能否把箱子推到要求的位置；如果能的话，再改变地图的状态，递归向四个方向调用搜索函数。<br>这个搜索过程中一定要留意搜索状态，稍有不注意就会写成NP复杂度；<br>此外debug也非常的累，我直到最后，规模2的7个测例中还是会WA掉1个，不过没什么办法了qwq，希望第五题多拿点分吧，毕竟作这道题也只是为了保险的TwT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://starrah.cn/blog/实验2-20190707/" data-id="cjxsji8bc0002isvkzkkxx890" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../blog1-2-20190703/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">实验2</a>
+          </li>
+        
+          <li>
+            <a href="../blog1-2-20190703/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="../blog1_1-20190703/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Starrah<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../" class="mobile-nav-link">主页</a>
+  
+    <a href="../index.html" class="mobile-nav-link">全部博文</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../fancybox/jquery.fancybox.css">
+  <script src="../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
